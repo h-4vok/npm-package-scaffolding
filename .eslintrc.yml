@@ -1,0 +1,25 @@
+env:
+  browser: true
+  es6: true
+  node: true
+  jest: true
+extends:
+  - airbnb-base
+  - prettier
+parser: babel-eslint
+plugins:
+  - prettier
+globals:
+  Atomics: readonly
+  SharedArrayBuffer: readonly
+parserOptions:
+  ecmaVersion: 6
+  sourceType: module
+  ecmaFeatures: {
+    jsx: true
+  }
+rules: {
+  import/prefer-default-export: false,
+  prettier/prettier: error,
+  no-plusplus: 0
+}

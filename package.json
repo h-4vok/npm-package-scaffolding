@@ -1,0 +1,66 @@
+{
+  "name": "npm-package-scaffolding",
+  "version": "1.0.0",
+  "scripts": {
+    "prepublish": "npm run all-checks && npm run code-coverage && npm run build",
+    "build": "npx babel src --out-dir dist",
+    "copy-package-json": "cp package.json dist",
+    "watch": "npx babel src --watch --out-dir dist",
+    "test": "jest --config jest.config.json",
+    "test:watch": "jest --config jest.config.json --watch",
+    "test:watchAll": "jest --config jest.config.json --watchAll",
+    "code-coverage": "jest --config jest.config.json --collect-coverage",
+    "prettier": "pretty-quick --staged --verbose --pattern src/**/*.js",
+    "prettier:full": "pretty-quick --branch master --verbose --pattern src/**/*.js",
+    "prettier:ci-check": "prettier --check \"src/**/*.js\"",
+    "lint": "eslint src/**/*.js --ignore-path .gitignore",
+    "all-checks": "run-s test lint prettier prettier:ci-check"
+  },
+  "description": "Update your metadata in the package.json before publishing!",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": ""
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h-4vok/npm-package-scaffolding.git"
+  },
+  "keywords": [
+    "xhr",
+    "api",
+    "fetch",
+    "superagent",
+    "axios"
+  ],
+  "author": "Christian Guzmán",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/h-4vok/npm-package-scaffolding/issues"
+  },
+  "homepage": "https://github.com/h-4vok/npm-package-scaffolding#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.3",
+    "jest": "^24.8.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "1.18.2",
+    "pretty-quick": "^1.11.1"
+  },
+  "dependencies": {
+    "@types/jest": "^24.0.17"
+  }
+}

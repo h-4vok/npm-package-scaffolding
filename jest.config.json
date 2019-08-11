@@ -1,0 +1,17 @@
+{
+  "name": "xhr-bridge",
+  "collectCoverage": false,
+  "collectCoverageFrom": ["**/src/*.js"],
+  "coveragePathIgnorePatterns": ["index.js"],
+  "coverageDirectory": "<rootDir>/coverage/",
+  "coverageThreshold": {
+    "global": {
+      "branches": 100,
+      "functions": 100,
+      "lines": 100,
+      "statements": 100
+    }
+  },
+  "verbose": false,
+  "testMatch": ["**/test/**.test.js"]
+}
